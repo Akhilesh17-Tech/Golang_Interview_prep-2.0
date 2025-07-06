@@ -1,0 +1,122 @@
+What is Kubernetes?
+Kubernetes is an open-source container orchestration system for automating the deployment, scaling, and management
+of containerized applications. It was originally designed by Google, and is now maintained by the Cloud Native
+Computing Foundation.
+Kubernetes, often abbreviated as K8s. It groups containers that make up an application into logical units for easy management and discovery, making it easier to manage and scale applications.
+
+Key Components of Kubernetes:
+
+Cluster: A Kubernetes cluster is a set of nodes (machines) that run containerized applications managed by Kubernetes.
+
+Node: A node is a worker machine in Kubernetes that can be either a virtual or a physical machine. Each node contains the services necessary to run pods and is managed by the master components.
+
+Pod: A pod is the smallest deployable unit in Kubernetes. It can contain one or more containers that share storage and network resources.
+
+Deployment: A deployment provides declarative updates to applications and manages the creation and updates of pods.
+
+Service: A Kubernetes service is an abstraction that defines a logical set of pods and a policy by which to access them.
+
+Kubectl : kubectl is the command-line tool for interacting with Kubernetes clusters. It allows users to manage and control Kubernetes resources and applications, such as deploying and scaling applications, viewing logs, and inspecting cluster resources
+
+
+Node---------
+Definition: A Node is a worker machine in Kubernetes. It can be either a physical machine or a virtual machine, depending on the cluster setup.
+
+Role: Nodes provide the necessary environment for running the Pods. They contain the services necessary to run Pods, including the Docker runtime, Kubelet, and Kube-proxy.
+
+Components:
+Kubelet: An agent that runs on each node, ensuring containers are running in a Pod.
+
+Kube-proxy: A network proxy that helps in Kubernetes networking services.
+
+Container Runtime: Software responsible for running containers. The most common runtime is Docker.
+
+Pod----------
+Definition: A Pod is the smallest deployable unit in Kubernetes. A Pod encapsulates one or more containers that are tightly coupled and need to share resources.
+
+Role: Pods run on Nodes and represent a single instance of a running process in a cluster. They are used to host containers that need to work together, share the same network, and storage resources.
+
+Components:
+
+Containers: Individual containerized applications running within the Pod.
+Shared Resources: Includes network IPs, storage volumes, and memory.
+
+Key Differences
+
+Hierarchy: Nodes are the physical or virtual machines on which Pods run. Pods are units of deployment on these nodes.
+
+Functionality: Nodes provide the infrastructure (compute, storage, networking) necessary for running the Pods. Pods 
+encapsulate application containers and their execution environment.
+
+Management: Nodes are managed by the Kubernetes control plane, while Pods are managed by Kubernetes based on the desired state defined by the user in their deployment configurations.
+
+
+
+Key Functions of Kubectl : 
+
+1 : Resource Management: Create, update, delete, and get various resources in a Kubernetes cluster, like pods, services, deployments, etc.
+
+2: Cluster Information: Retrieve information about the cluster's nodes, pods, services, and other resources.
+
+3: Configuration: Manage configuration settings for both kubectl and the Kubernetes cluster.
+
+4: Debugging and Monitoring: Inspect and troubleshoot applications and services running in the cluster by viewing logs, describing resources, and checking status.  
+
+
+Common kubectl Commands:
+
+kubectl get [resource]: Lists one or more resources.
+kubectl describe [resource] [name]: Displays detailed information about a resource.
+kubectl apply -f [file]: Applies the changes defined in a configuration file to the resources.
+kubectl delete [resource] [name]: Deletes a resource from the cluster.
+kubectl logs [pod-name]: Displays the logs of a specific pod.
+kubectl exec [pod-name] -- [command]: Executes a command inside a running container.
+
+
+
+A manifest file in Kubernetes is a YAML or JSON file that defines the desired state of a Kubernetes resource, such as pods, deployments, services, configmaps, secrets, and more. The manifest file specifies the configuration details of these resources, including metadata, specifications, and any other settings required for Kubernetes to create, update, or manage the resource.
+
+
+Purpose of a Manifest File
+1 : Declarative Configuration: Manifest files allow you to declare the desired state of your resources in a Kubernetes cluster. Kubernetes will ensure that the actual state matches the desired state described in these files.
+
+2: Version Control: By storing manifest files in version control systems like Git, you can track changes to your cluster configurations over time, rollback to previous versions, and collaborate with team members.
+
+3: Automation and Reusability: Manifest files can be reused across different environments (development, staging, production) and automated tools can use them to deploy resources in a consistent manner.
+
+4: Consistency and Documentation: Manifest files provide a clear and consistent way to define resources and serve as documentation for how a Kubernetes cluster is configured.
+
+Example of menifest file : 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+
+
+Explanation of the Manifest File
+
+1: apiVersion: Specifies the API version of the resource being used (apps/v1 for Deployment).
+2: kind: Defines the type of Kubernetes resource (Deployment in this case).
+3: metadata: Contains metadata such as the name of the deployment.
+4: spec: Specifies the desired state of the resource, such as the number of replicas and the configuration of the containers.
+
+
+Applying a Manifest File
+kubectl apply -f nginx-deployment.yaml

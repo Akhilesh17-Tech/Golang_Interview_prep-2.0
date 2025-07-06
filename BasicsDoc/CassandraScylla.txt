@@ -1,0 +1,50 @@
+package config
+
+import (
+	"github.com/gocql/gocql"
+)
+
+var Session *gocql.Session
+
+func InitDB() {
+	cluster := gocql.NewCluster("127.0.0.1") 
+	cluster.Keyspace = "jiocinema"
+	cluster.Consistency = gocql.Quorum
+	session, err := cluster.CreateSession()
+	if err != nil {
+		panic(err)
+	}
+	Session = session
+}
+
+
+
+// cluster := gocql.NewCluster("127.0.0.1") => This creates a new Cassandra cluster configuration using the gocql.NewCluster method. It takes a list of Cassandra nodes (in this case, a single node running on 127.0.0.1 or localhost). You would typically replace 127.0.0.1 with the IP addresses of your Cassandra cluster nodes in a production environment.
+
+// cluster.Keyspace = "jiocinema" =>  This specifies the keyspace to use in the Cassandra cluster. A keyspace in Cassandra is equivalent to a database schema in relational databases. Here, the keyspace is named "jiocinema".
+
+// cluster.Consistency = gocql.Quorum => This sets the consistency level for n before it's considered successful. Cassandra's distributed nature allows us to tune consistency based on your application's need for high availability, fault tolerance, or data accuracy.
+ queries. The gocql.Quorum constant ensures that a quorum of nodes acknowledges a read or write operation before it is considered successful. More on this below.
+
+// session, err := cluster.CreateSession() => This attempts to create a session with the Cassandra cluster using the configuration specified in cluster. The CreateSession() method returns a gocql.Session object and an error. If an error occurs while connecting to the cluster, the program will panic, stopping execution and printing the error.
+
+
+Consistency Levels in Cassandra
+In Cassandra, consistency level determines how many replicas must respond to a read or write operation before it's considered successful. Cassandra's distributed nature allows us to tune consistency based on your application before it's considered successful. Cassandra's distributed nature allows us to tune consistency based on your application's need for high availability, fault tolerance, or data accuracy.
+n's need for high availability, fault tolerance, or data accuracy.
+
+Consistency Levels:
+
+1 ANY: The write operation is successful if at least one replica receives it. This level allows the highest availability but might risk data loss since the operation can succeed without being written to a specific number of replicas.
+
+2 ONE: A write or read is successful when at least one replica acknowledges it. This offers low latency but reduces fault tolerance.
+
+3 QUORUM: This is a balanced approach between availability and consistency. The operation is successful when a quorum (a majority of the replicas) respond. For example: In a 3-node cluster, quorum means 2 nodes must respond. For read operations, this means you're likely to get the most up-to-date data since most replicas are involved.
+
+4 LOCAL_QUORUM: Similar to QUORUM, but it applies within the local data center. It’s useful in multi-data center setups, ensuring that operations succeed within one data center without waiting for cross-data-center communication.
+
+5 ALL: The strictest consistency level. All replicas must acknowledge the operation before it's considered successful. This guarantees that data is consistent but can significantly impact availability.
+
+6 TWO / THREE: Like ONE, but the operation requires acknowledgment from two or three replicas, respectively.
+
+7 LOCAL_ONE: A read or write must be acknowledged by at least one replica in the local data center. This is faster for geographically distributed clusters but sacrifices global consistency.

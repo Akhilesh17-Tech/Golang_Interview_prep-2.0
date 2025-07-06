@@ -1,0 +1,33 @@
+docker networking 
+Networking is a crucial aspect of computer science, and it's essential to understand the basics of networking to
+become proficient in computer science. Here are some key concepts to get you started:   
+1.  **Network Topology**: This refers to the physical or logical arrangement of devices on a network. Common topologies include bus, star, ring, and mesh.
+
+how to reduce docker container size ?
+Docker containers can be quite large, especially if you're using a lot of dependencies or libraries.
+Here are some tips to reduce the size of your Docker container:
+1.  **Use a smaller base image**: Choose a smaller base image to start with. For example, you can use an official image like `alpine` instead of `ubuntu`.
+2.  **Remove unnecessary packages**: Remove any unnecessary packages or dependencies from your Dockerfile.
+3.  **Use multi-stage builds**: Use multi-stage builds to separate your build process from your runtime environment. This can help reduce the size of your final image.
+4.  **Use a smaller package manager**: Use a smaller package manager like `apk` instead of `apt-get`.
+5.  **Use a Dockerfile with a smaller size**: Use a Dockerfile with a smaller size by removing unnecessary commands and instructions.
+6.  **Use a smaller runtime environment**: Use a smaller runtime environment like `node:alpine` instead of `node:latest`.
+7.  **Use a Docker image with a smaller size**: Use a Docker image with a smaller size like `nginx:alpine` instead of `nginx:latest`.
+8.  **Use a Docker image with a smaller size**: Use a Docker image with a smaller size like `mysql:5.7` instead of `mysql:latest`.
+
+how to secure container ?
+Securing containers is crucial to prevent unauthorized access and data breaches. Here are some best practices to secure
+your containers:
+
+1.  **Use a secure base image**: Choose a secure base image that has been vetted
+2.  **Use a secure networking model**: Use a secure networking model like Docker's built-in
+3.  **Use a secure authentication mechanism**: Use a secure authentication mechanism like 
+4.  **Use a secure authorization mechanism**: Use a secure authorization mechanism like
+5.  **Use a secure logging mechanism**: Use a secure logging mechanism like
+6.  **Use a secure monitoring mechanism**: Use a secure monitoring mechanism like
+7.  **Use a secure backup mechanism**: Use a secure backup mechanism like
+8.  **Use a secure update mechanism**: Use a secure update mechanism like
+9.  **Use a secure configuration mechanism**: Use a secure configuration mechanism like
+10. **Use a secure secrets management mechanism**: Use a secure secrets management mechanism like
+
+

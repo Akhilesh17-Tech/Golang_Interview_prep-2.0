@@ -1,0 +1,60 @@
+Google Cloud Platform (GCP) is a suite of cloud computing services provided by Google. It offers a range of services that operate on the same infrastructure that Google uses internally for its end-user products like Google Search, Gmail, and YouTube. GCP provides a broad set of cloud-based services, including computing, storage, databases, networking, big data, machine learning, and more.
+
+
+1. Google Compute Engine (GCE)
+Description: GCE provides virtual machines (VMs) running in Google’s data centers. It allows users to run their workloads on virtual machines and customize them with the desired operating system, memory, storage, and more.
+Use Case: Running custom applications, websites, or any service requiring specific hardware configurations.
+2. Google Kubernetes Engine (GKE)
+Description: GKE is a managed Kubernetes service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes.
+Use Case: Running containerized applications with Kubernetes, handling orchestration, auto-scaling, and cluster management.
+3. Google App Engine (GAE)
+Description: GAE is a fully managed platform-as-a-service (PaaS) that allows developers to build and deploy applications without managing the underlying infrastructure.
+Use Case: Quickly deploying web applications and mobile backends with automatic scaling and management.
+4. Google Cloud Storage
+Description: A scalable object storage service for storing and retrieving any amount of data at any time. It provides different storage classes based on data access needs, such as Standard, Nearline, Coldline, and Archive.
+Use Case: Storing unstructured data like images, videos, backups, and logs.
+5. BigQuery
+Description: BigQuery is a serverless, highly scalable, and cost-effective data warehouse designed for business agility. It allows users to run fast SQL-like queries on large datasets.
+Use Case: Analyzing large datasets for business intelligence, analytics, and data warehousing.
+6. Google Cloud Pub/Sub
+Description: Pub/Sub is a messaging service that enables asynchronous communication between applications. It allows publishers to send messages to topics and subscribers to receive them.
+Use Case: Building real-time messaging systems, event ingestion, and analytics pipelines.
+7. Google Cloud VPC (Virtual Private Cloud)
+Description: VPC provides networking functionality for Google Cloud resources, allowing users to define their network topology, including IP allocation, subnetworks, routes, and firewalls.
+Use Case: Configuring and managing secure and private networks for Google Cloud resources.
+8. Google Cloud Identity and Access Management (IAM)
+Description: IAM provides fine-grained access control and identity management for Google Cloud resources. It allows users to manage who (users) has what access (roles) to which resources.
+Use Case: Managing permissions and access control for Google Cloud resources securely.
+9. Google cloud Monitoring
+Overview: Google Cloud Monitoring provides real-time insights into the performance, uptime, and overall health of cloud-powered applications and infrastructure. It collects metrics, events, and metadata from Google Cloud, Amazon Web Services (AWS), and on-premises resources.
+
+Key Features of Google Cloud Monitoring:
+Metrics Collection:
+
+Google Cloud Metrics: Automatically collects metrics from various GCP services like Compute Engine, Kubernetes Engine, BigQuery, Cloud Pub/Sub, and others.
+Custom Metrics: Allows you to create and monitor custom metrics for your applications, providing flexibility to track application-specific data.
+Dashboards:
+
+Predefined Dashboards: Comes with built-in dashboards for common Google Cloud services, displaying relevant metrics and data for each service.
+Custom Dashboards: Lets you create custom dashboards to visualize the data most relevant to your applications and infrastructure.
+Alerts and Notifications:
+
+Alerting Policies: Enables you to create alerting policies based on metric thresholds, health checks, or log-based metrics. Alerts can trigger notifications to various channels like email, SMS, Slack, PagerDuty, etc.
+Uptime Checks: Configures uptime checks to monitor the availability of your applications and services, alerting you if they go down.
+Resource Monitoring:
+
+Virtual Machines: Monitors CPU usage, memory usage, disk I/O, and network traffic for Compute Engine instances.
+Kubernetes Clusters: Provides detailed insights into Kubernetes Engine clusters, monitoring CPU, memory, and disk usage for nodes and pods, as well as other Kubernetes-specific metrics.
+Log-Based Metrics:
+
+Integrates with Google Cloud Logging (formerly Stackdriver Logging) to create metrics based on log entries. This allows you to set alerts based on specific log messages or patterns, providing another layer of monitoring.
+Service Monitoring:
+
+Service Level Objectives (SLOs): Helps you define and monitor SLOs for your services, enabling you to manage service reliability more effectively.
+Service Level Indicators (SLIs): Provides metrics that measure aspects of a service’s performance (e.g., latency, throughput) to ensure it meets the defined SLOs.
+Incident Management:
+
+Incident Tracking: Automatically creates incidents based on alerting policies and integrates with incident management tools like PagerDuty and Opsgenie to help manage incidents effectively.
+Integration with Third-Party Tools:
+
+Supports integration with popular third-party tools like Grafana for enhanced visualization and analysis capabilities.
